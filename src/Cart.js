@@ -10,7 +10,7 @@ class Cart extends Component{
       }
 
     componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/todos").then(data => data.json()).then(data =>this.setState({cartList: data})).catch(console.log);
+        fetch("localhost:5555/list").then(data => data.json()).then(data =>this.setState({cartList: data})).catch(console.log);
      }
 
 
@@ -23,7 +23,7 @@ return (
         <h1>Your current cart: </h1>  
         {this.state.cartList.map(e =>
               <div>
-                    [Product Name: {e.title}] [Description: {e.description}] [Cost: {e.price}] [Amount: {e.amount}]
+                    [Product Name: {e.name}] [Description: {e.description}] [Cost: {e.price}] [Amount: {e.amount}]
                </div> 
               )}
         </div>
